@@ -1,12 +1,12 @@
 import unittest
 
+from CrackingTheCodingInterview_5ed.ChapterTwo_LinkedLists.TwoDotFour_PartitionLinkedList import Solution
 from MyLibrary.LinkedLists.SinglyLinkedLists.SinglyLinkedList import SinglyLinkedList
-from CrackingTheCodingInterview_5ed.TwoDotFour_PartitionLinkedList import Solution
 
 
 class Test_Solution_of_TwoDotFour_PartitionLinkedList_create_new_list(unittest.TestCase):
     def test_partition_number_present_in_middle_of_list(self):
-        
+
         inputList = [38, 76, 72, 44, 17, 65, 24, 59, 47, 76]
         print inputList
 
