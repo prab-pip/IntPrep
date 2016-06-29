@@ -23,7 +23,7 @@ class Solution(object):
         elif secondList.isListEmpty():
             return firstList
         else:
-            firstList.tail.next = secondList.head # Could be the other way round as well (secondList.tail.next = firstList.head ), but since it wasn't asked in the question, I've chosen the first option. In a real interview, I would ask the interviewer
+            firstList.tail.nextPointer = secondList.head # Could be the other way round as well (secondList.tail.nextPointer = firstList.head ), but since it wasn't asked in the question, I've chosen the first option. In a real interview, I would ask the interviewer
             return firstList
 
     def partitionLinkedListBasedOnAGivenNumber_DontCreateNewList(self, givenNumber):
@@ -45,5 +45,5 @@ class Solution(object):
         elif secondList.isListEmpty():
             return firstList
         else:
-            firstList.tail.next = secondList.head # Could be the other way round as well (secondList.tail.next = firstList.head ), but since it wasn't asked in the question, I've chosen the first option. In a real interview, I would ask the interviewer
+            firstList.tail.nextPointer = secondList.head # Could be the other way round as well (secondList.tail.nextPointer = firstList.head ), but since it wasn't asked in the question, I've chosen the first option. In a real interview, I would ask the interviewer
             return firstList

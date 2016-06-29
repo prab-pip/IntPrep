@@ -23,8 +23,8 @@ class SinglyLinkedList(object):
         self.temp = self.head
         for dataValue in listOfDataValues[1:]:
             self.listNode = SinglyLinkedListNode(dataValue)
-            self.temp.next = self.listNode
-            self.temp = self.temp.next
+            self.temp.nextPointer = self.listNode
+            self.temp = self.temp.nextPointer
 
         self.tail = self.temp
 
@@ -32,7 +32,7 @@ class SinglyLinkedList(object):
         self.temp = self.head
         while(self.temp is not None):
             print self.temp.data
-            self.temp = self.temp.next
+            self.temp = self.temp.nextPointer
 
     def returnLinkedListAsList(self):
         returnList = []
@@ -40,7 +40,7 @@ class SinglyLinkedList(object):
         self.temp = self.head
         while(self.temp is not None):
             returnList.append(self.temp.data)
-            self.temp = self.temp.next
+            self.temp = self.temp.nextPointer
 
         return returnList
 
@@ -53,14 +53,19 @@ class SinglyLinkedList(object):
         3. list has > 1 element. So, head and tail are different. Only need to change head. No need to touch head
         :return:
         '''
+
         if self.isHeadNone():
             return True
         elif self.head == self.tail: # Means there is only 1 element in the list
             self.head = None
             self.tail = None
         else:
-            self.head = self.head.next
+            self.head = self.head.nextPointer
 
+
+    def delete_all(self):
+        while not self.isHeadNone():
+            self.deleteHead()
 
     def appendToListUsingTail(self, data):
         self.tempNode = SinglyLinkedListNode(data)
@@ -68,7 +73,7 @@ class SinglyLinkedList(object):
         if self.tail is None: # Meaning append is called when list is empty
             self.head = self.tail = self.tempNode
         else: # Meaning there is at least one element already in the list
-            self.tail.next = self.tempNode
+            self.tail.nextPointer = self.tempNode
             self.tail = self.tempNode
 
     def __iter__(self):
@@ -80,7 +85,7 @@ class SinglyLinkedList(object):
         self.currentNode = self.head
         while self.currentNode is not None:
             yield self.currentNode.data
-            self.currentNode = self.currentNode.next
+            self.currentNode = self.currentNode.nextPointer
 
 
 
