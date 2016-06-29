@@ -57,6 +57,7 @@ class TestSinglyLinkedListDelete(unittest.TestCase):
 
         self.assertTrue(singlyLinkedListObject.head != singlyLinkedListObject.tail, "Tail and Head must NOT be the same after only 1 element remains in the list")
 
+
 class TestSinglyLinkedListAppend(unittest.TestCase):
 
     def test_append_when_list_is_empty(self):
