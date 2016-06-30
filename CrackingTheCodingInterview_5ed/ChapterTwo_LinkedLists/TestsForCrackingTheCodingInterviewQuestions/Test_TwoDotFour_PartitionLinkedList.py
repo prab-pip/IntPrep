@@ -8,7 +8,6 @@ class Test_Solution_of_TwoDotFour_PartitionLinkedList_create_new_list(unittest.T
     def test_partition_number_present_in_middle_of_list(self):
 
         inputList = [38, 76, 72, 44, 17, 65, 24, 59, 47, 76]
-        print inputList
 
         givenSinglyLinkedList = SinglyLinkedList()
         givenSinglyLinkedList.populate(inputList)
@@ -23,10 +22,8 @@ class Test_Solution_of_TwoDotFour_PartitionLinkedList_create_new_list(unittest.T
 
 class Test_Solution_of_TwoDotFour_PartitionLinkedList_dont_create_new_list(unittest.TestCase):
     def test_partition_number_present_in_start_of_list(self):
-        # inputList = returnRandomListOfIntegers()
 
         inputList = [38, 76, 72, 44, 17, 65, 24, 59, 47, 76]
-        print inputList
 
         givenSinglyLinkedList = SinglyLinkedList()
         givenSinglyLinkedList.populate(inputList)
