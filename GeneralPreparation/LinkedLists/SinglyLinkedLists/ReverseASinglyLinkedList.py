@@ -12,3 +12,14 @@ class Solution(object):
             self.returnReversedListUsingRecursion(inputListHead.nextPointer, outputList)
             outputList.appendToListUsingTail(inputListHead.data)
 
+    def reverseOriginalList_Iterative(self, originalList):
+        if originalList.isHeadNone():
+            return
+        previous = None
+        while originalList.head.nextPointer is not None:
+            nextNode = originalList.head.nextPointer
+            originalList.head.nextPointer = previous
+            previous = originalList.head
+            originalList.head = nextNode
+
+        originalList.head.nextPointer = previous
