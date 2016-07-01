@@ -23,3 +23,14 @@ class Solution(object):
             originalList.head = nextNode
 
         originalList.head.nextPointer = previous
+
+    def reverseOriginalLinkedList_Recursive(self, originalList, previousNode = None):
+        if originalList.isHeadNone():
+            return
+        nextNode = originalList.head.nextPointer
+        originalList.head.nextPointer = previousNode
+
+        if nextNode is not None:
+            previousNode = originalList.head
+            originalList.head = nextNode
+            self.reverseOriginalLinkedList_Recursive(originalList, previousNode)

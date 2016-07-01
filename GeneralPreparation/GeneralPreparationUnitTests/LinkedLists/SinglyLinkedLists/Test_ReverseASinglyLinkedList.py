@@ -145,3 +145,55 @@ class Test_ReverseASinglyLinkedList_ReverseOriginalListIterative(unittest.TestCa
         returnedList = originalList.returnLinkedListAsList()
 
         self.assertTrue(expectedList == returnedList, "Expected: %s, Got: %s" %(expectedList, returnedList))
+
+class Test_ReverseASinglyLinkedList_ReverseOriginalListRecursive(unittest.TestCase):
+    def test_reverse_an_empty_list(self):
+        originalList = SinglyLinkedList() # Because it's an empty list, no need to populate it
+
+        s = Solution()
+        s.reverseOriginalLinkedList_Recursive(originalList)
+
+        inputList = []
+        expectedList = inputList
+        returnedList = originalList.returnLinkedListAsList()
+        self.assertTrue(expectedList == returnedList, "Expected: %s, Got: %s" %(expectedList, returnedList))
+
+    def test_reverse_a_list_with_one_element(self):
+        originalList = SinglyLinkedList()
+        inputList = [10]
+        originalList.populate(inputList)
+
+        s = Solution()
+
+        s.reverseOriginalLinkedList_Recursive(originalList)
+
+        expectedList = inputList[::-1]
+        returnedList = originalList.returnLinkedListAsList()
+        self.assertTrue(expectedList == returnedList, "Expected: %s, Got: %s" %(expectedList, returnedList))
+
+    def test_reverse_a_list_with_two_elements(self):
+        originalList = SinglyLinkedList()
+        inputList = [10, 20]
+        originalList.populate(inputList)
+
+        s = Solution()
+
+        s.reverseOriginalLinkedList_Recursive(originalList)
+
+        expectedList = inputList[::-1]
+        returnedList = originalList.returnLinkedListAsList()
+        self.assertTrue(expectedList == returnedList, "Expected: %s, Got: %s" %(expectedList, returnedList))
+
+    def test_reverse_a_list_with_many_elements(self):
+        originalList = SinglyLinkedList()
+        inputList = range(10,101,10)
+        originalList.populate(inputList)
+
+        s = Solution()
+
+        s.reverseOriginalLinkedList_Recursive(originalList)
+
+        expectedList = inputList[::-1]
+        returnedList = originalList.returnLinkedListAsList()
+
+        self.assertTrue(expectedList == returnedList, "Expected: %s, Got: %s" %(expectedList, returnedList))
