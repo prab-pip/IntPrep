@@ -92,3 +92,181 @@ class TestSinglyLinkedListasPythonGenerator(unittest.TestCase):
         singlyLinkedListObject.populate(inputList)
         for index, data in enumerate(singlyLinkedListObject):
             self.assertTrue(data == inputList[index], "Data mismatch. Expected data: %s, Got: %s" %(inputList[index], data))
+
+class TestSinglyLinkedListLength(unittest.TestCase):
+    def test_length_of_empty_list(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        expectedLength = 0
+        actualLength = len(singlyLinkedListObject)
+
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+    def test_length_of_list_with_one_element(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(1)
+        singlyLinkedListObject.populate(inputList)
+
+        expectedLength = len(inputList)
+
+        actualLength = len(singlyLinkedListObject)
+
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+    def test_length_of_list_with_two_elements(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(2)
+        singlyLinkedListObject.populate(inputList)
+
+        expectedLength = len(inputList)
+
+        actualLength = len(singlyLinkedListObject)
+
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+    def test_length_of_list_with_many_elements(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(100000)
+        singlyLinkedListObject.populate(inputList)
+
+        expectedLength = len(inputList)
+
+        actualLength = len(singlyLinkedListObject)
+
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+    def test_length_of_list_after_list_change_operations(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(10)
+        singlyLinkedListObject.populate(inputList)
+
+        expectedLength = len(inputList)
+
+        actualLength = len(singlyLinkedListObject)
+
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+        singlyLinkedListObject.deleteHead()
+
+        expectedLength -= 1
+
+        actualLength = len(singlyLinkedListObject)
+
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+        singlyLinkedListObject.insertAtHead(200)
+        expectedLength += 1
+
+        actualLength = len(singlyLinkedListObject)
+
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+
+        singlyLinkedListObject.insertAtHead(200)
+        expectedLength += 1
+
+        actualLength = len(singlyLinkedListObject)
+
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+    def test_changing_list_length_during_append_operation(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        expectedLength = 0
+        actualLength = len(singlyLinkedListObject)
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+        inputList = range(10)
+        for data in inputList:
+            singlyLinkedListObject.appendToListUsingTail(data)
+
+            actualLength = len(singlyLinkedListObject)
+            expectedLength += 1  # Because a new element has been added to the list.
+            self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+    def test_changing_list_length_during_insert_at_head_operation(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        expectedLength = 0
+        actualLength = len(singlyLinkedListObject)
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+        inputList = range(10)
+        for data in inputList:
+            singlyLinkedListObject.insertAtHead(data)
+
+            actualLength = len(singlyLinkedListObject)
+            expectedLength += 1  # Because a new element has been added to the list.
+            self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+    def test_changing_list_length_during_delete_head_operation(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(10)
+        singlyLinkedListObject.populate(inputList)
+
+        expectedLength = len(inputList)
+        actualLength = len(singlyLinkedListObject)
+        self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+        for data in inputList:
+            singlyLinkedListObject.deleteHead()
+
+            actualLength = len(singlyLinkedListObject)
+            expectedLength -= 1  # Because a new element has been added to the list.
+            self.assertTrue(expectedLength == actualLength, "Expected length: %s, Actual Length: %s" %(expectedLength, actualLength))
+
+
+class TestDeleteHeadOperation(unittest.TestCase):
+    def test_delete_head_of_empty_list(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        singlyLinkedListObject.deleteHead()
+        self.assertTrue(singlyLinkedListObject.isHeadNone(), "Head of empty list must be None")
+
+    def test_delete_head_of_empty_list_more_than_once(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        singlyLinkedListObject.deleteHead()
+        self.assertTrue(singlyLinkedListObject.isHeadNone(), "Head of empty list must be None")
+
+        singlyLinkedListObject.deleteHead()
+        self.assertTrue(singlyLinkedListObject.isHeadNone(), "Head of empty list must be None")
+
+        singlyLinkedListObject.deleteHead()
+        self.assertTrue(singlyLinkedListObject.isHeadNone(), "Head of empty list must be None")
+
+    def test_delete_head_of_list_with_one_item(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = [1]
+        singlyLinkedListObject.populate(inputList)
+
+        singlyLinkedListObject.deleteHead()
+        self.assertTrue(singlyLinkedListObject.isHeadNone(), "Now that the only element in the list is deleted, Head of empty list must be None")
+
+        singlyLinkedListObject.deleteHead()
+        self.assertTrue(singlyLinkedListObject.isHeadNone(), "Now that the only element in the list is deleted, Head of empty list must be None")
+
+    def test_delete_head_of_list_with_more_than_one_item(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = [1, 2, 3]
+        singlyLinkedListObject.populate(inputList)
+
+        singlyLinkedListObject.deleteHead()
+        self.assertFalse(singlyLinkedListObject.isHeadNone(), "Head of non-empty list must NOT be None")
+        self.assertFalse(singlyLinkedListObject.head == 2, "Expected hea data: %s, Actual head data: %s" %(2, singlyLinkedListObject.head))
+
+        singlyLinkedListObject.deleteHead()
+        self.assertFalse(singlyLinkedListObject.isHeadNone(), "Head of non-empty list must NOT be None")
+
+        self.assertFalse(singlyLinkedListObject.head == 3, "Expected hea data: %s, Actual head data: %s" %(3, singlyLinkedListObject.head))
+
+
+        singlyLinkedListObject.deleteHead()
+        self.assertTrue(singlyLinkedListObject.isHeadNone(), "Head of Empty list must be None")

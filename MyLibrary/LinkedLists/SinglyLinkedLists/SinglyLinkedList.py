@@ -87,6 +87,27 @@ class SinglyLinkedList(object):
             yield self.currentNode.data
             self.currentNode = self.currentNode.nextPointer
 
+    def insertAtHead(self, data):
+        self.tempNode = SinglyLinkedListNode(data)
+
+
+        if self.isHeadNone():# Make tempNode as head as well as tail
+            self.head = self.tail = self.tempNode
+        else:
+            self.tempNode.nextPointer = self.head
+            self.head = self.tempNode
+
+    def __len__(self):  # This method calculates the list's length everytime when it is called. In order to avoid O(n) everytime and change it to O(1), we can cache the current count as an instance variable and update it on add/append/delete operations
+        temp = self.head
+        count = 0
+        while temp is not None:
+            count += 1
+            temp = temp.nextPointer
+
+        return count
+
+
+
 
 
 
