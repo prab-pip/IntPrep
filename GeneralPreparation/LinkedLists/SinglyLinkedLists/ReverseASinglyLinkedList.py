@@ -1,5 +1,5 @@
 class Solution(object):
-    def __init__(self, givenList = None):
+    def __init__(self):
         pass
 
     def printReverseUsingRecursion(self, listHead):

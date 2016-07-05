@@ -14,6 +14,26 @@ class SinglyLinkedList(object):
     def isTailNone(self):
         return self.tail is None
 
+    def populateNewListStartingFromALinkedListNode(self, linkedListNode):
+        '''
+        This method can rupture the existing linked list. So, it must be called on empty linked list objects. This method creates a new list starting from the given linked list node
+
+        :param linkedListNode: A node of some linked list, starting from which we want to populate this empty list
+        :return: None
+        '''
+
+        newSinglyLinkedList = SinglyLinkedList()
+
+        currentNode = linkedListNode
+        while currentNode is not None:
+            newSinglyLinkedList.appendToListUsingTail(currentNode.data)
+            currentNode = currentNode.nextPointer
+
+        self.head = newSinglyLinkedList.head
+        self.tail = newSinglyLinkedList.tail
+
+
+
     def populate(self, listOfDataValues):
         if not self.isHeadNone():
             raise Exception("Already has some data")
@@ -119,21 +139,19 @@ class SinglyLinkedList(object):
 
         return slowPointer
 
+    def findAndReturnTailOfList(self, singlyLinkedListNode):
+        '''
+        Maybe the place of this function can be somewhere in some utilities, and not here
+
+        :param singlyLinkedListNode: The node of the linked list
+        :return: tail node of the list
+        '''
+        tempNode = singlyLinkedListNode
+        if tempNode is None:
+            return tempNode
+        while tempNode.nextPointer is not None:
+            # This loop stops at tail node i.e. in the end, tempNode holds the tail node
+            tempNode = tempNode.nextPointer
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return tempNode
