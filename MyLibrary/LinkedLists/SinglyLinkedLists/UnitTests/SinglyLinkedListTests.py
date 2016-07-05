@@ -270,3 +270,73 @@ class TestDeleteHeadOperation(unittest.TestCase):
 
         singlyLinkedListObject.deleteHead()
         self.assertTrue(singlyLinkedListObject.isHeadNone(), "Head of Empty list must be None")
+
+
+class TestCentreOfTheLinkedList(unittest.TestCase):
+    def test_return_centre_of_empty_list(self):
+        singlyLinkedListObject = SinglyLinkedList()
+        expectedCentre = None
+        actualCentre = singlyLinkedListObject.returnCentreOfTheLinkedList()
+        self.assertTrue(expectedCentre == actualCentre, "Expected centre if linked list: %s, Got: %s" %(expectedCentre, actualCentre))
+
+    def test_return_centre_of_list_with_one_element(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(1)
+        singlyLinkedListObject.populate(inputList)
+
+        centreIndex = (len(inputList)-1)/2
+        expectedCentre = inputList[centreIndex]
+
+        actualCentre = singlyLinkedListObject.returnCentreOfTheLinkedList()
+        self.assertTrue(expectedCentre == actualCentre.data, "Expected centre if linked list: %s, Got: %s" %(expectedCentre, actualCentre))
+
+    def test_return_centre_of_list_with_two_elements(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(2)
+        singlyLinkedListObject.populate(inputList)
+
+        centreIndex = (len(inputList)-1)/2
+        expectedCentre = inputList[centreIndex]
+
+        actualCentre = singlyLinkedListObject.returnCentreOfTheLinkedList()
+        self.assertTrue(expectedCentre == actualCentre.data, "Expected centre if linked list: %s, Got: %s" %(expectedCentre, actualCentre))
+
+    def test_return_centre_of_list_with_third_elements(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(3)
+        singlyLinkedListObject.populate(inputList)
+
+        centreIndex = (len(inputList)-1)/2
+        expectedCentre = inputList[centreIndex]
+
+        actualCentre = singlyLinkedListObject.returnCentreOfTheLinkedList()
+        print "Expected centre if linked list: %s, Got: %s" %(expectedCentre, actualCentre)
+        self.assertTrue(expectedCentre == actualCentre.data, "Expected centre if linked list: %s, Got: %s" %(expectedCentre, actualCentre))
+
+
+    def test_return_centre_of_list_with_many_odd_elements(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(20001)
+        singlyLinkedListObject.populate(inputList)
+
+        centreIndex = (len(inputList)-1)/2
+        expectedCentre = inputList[centreIndex]
+
+        actualCentre = singlyLinkedListObject.returnCentreOfTheLinkedList()
+        self.assertTrue(expectedCentre == actualCentre.data, "Expected centre if linked list: %s, Got: %s" %(expectedCentre, actualCentre))
+
+    def test_return_centre_of_list_with_many_even_elements(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = range(40000)
+        singlyLinkedListObject.populate(inputList)
+
+        centreIndex = (len(inputList)-1)/2
+        expectedCentre = inputList[centreIndex]
+
+        actualCentre = singlyLinkedListObject.returnCentreOfTheLinkedList()
+        self.assertTrue(expectedCentre == actualCentre.data, "Expected centre if linked list: %s, Got: %s" %(expectedCentre, actualCentre))

@@ -106,6 +106,21 @@ class SinglyLinkedList(object):
 
         return count
 
+    def returnCentreOfTheLinkedList(self):
+        # If list has odd elements e.g. 5 elements, the pointer to 3rd element will be returned
+        # If list has even element e.g. 4, the pointer to 2nd element will be returned
+        if self.isHeadNone():
+            return self.head
+        slowPointer = fastPointer = self.head
+
+        while fastPointer.nextPointer is not None and fastPointer.nextPointer.nextPointer is not None:
+            slowPointer = slowPointer.nextPointer
+            fastPointer = fastPointer.nextPointer.nextPointer
+
+        return slowPointer
+
+
+
 
 
 
