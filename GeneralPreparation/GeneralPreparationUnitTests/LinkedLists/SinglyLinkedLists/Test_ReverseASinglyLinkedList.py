@@ -197,3 +197,44 @@ class Test_ReverseASinglyLinkedList_ReverseOriginalListRecursive(unittest.TestCa
         returnedList = originalList.returnLinkedListAsList()
 
         self.assertTrue(expectedList == returnedList, "Expected: %s, Got: %s" %(expectedList, returnedList))
+
+class Test_ReverseASinglyLinkedList_yieldListDataInReversedOrderUsingRecursion(unittest.TestCase):
+    def test_yield_reverse_empty_list(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        s = Solution()
+        for i in s.yieldListDataInReversedOrderUsingRecursion(singlyLinkedListObject.head):
+            print i
+
+    def test_yield_reverse_list_with_one_element(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = [1]
+        singlyLinkedListObject.populate(inputList)
+
+        s = Solution()
+
+        for i in s.yieldListDataInReversedOrderUsingRecursion(singlyLinkedListObject.head):
+            print i
+
+    def test_yield_reverse_list_with_two_elements(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = [1, 2]
+        singlyLinkedListObject.populate(inputList)
+
+        s = Solution()
+
+        for i in s.yieldListDataInReversedOrderUsingRecursion(singlyLinkedListObject.head):
+            print i
+
+    def test_yield_reverse_list_with_three_elements(self):
+        singlyLinkedListObject = SinglyLinkedList()
+
+        inputList = [1, 2, 3]
+        singlyLinkedListObject.populate(inputList)
+
+        s = Solution()
+
+        for i in s.yieldListDataInReversedOrderUsingRecursion(singlyLinkedListObject.head):
+            print i

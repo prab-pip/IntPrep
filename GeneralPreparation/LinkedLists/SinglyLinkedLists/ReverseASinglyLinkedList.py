@@ -7,6 +7,26 @@ class Solution(object):
             self.printReverseUsingRecursion(listHead.nextPointer)
             print listHead.data
 
+    def yieldListDataInReversedOrderUsingRecursion(self, listHead):
+            # # print 'called', listHead.data
+            # if listHead is None:  # Fail safe
+            #     yield None
+            # elif listHead.nextPointer is None:
+            #     print 'fdfd'
+            #     yield listHead  # This will return the tail
+            # elif listHead.nextPointer is not None:  # Recursive step
+            #     # print 'here: ', listHead.data, listHead.nextPointer.data
+            #     print 'e'
+            #     for i in self.yieldListDataInReversedOrderUsingRecursion(listHead.nextPointer):
+            #         yield i
+            #     # print 'aaaaa', listHead.data
+            #     # yield listHead.data
+            # # else:
+            # #     # print 'not coming here??'
+
+        return "This is not implemented yet, because I need to work on recursive generator functions."
+
+
     def returnReversedListUsingRecursion(self, inputListHead, outputList):
         if inputListHead is not None:
             self.returnReversedListUsingRecursion(inputListHead.nextPointer, outputList)
