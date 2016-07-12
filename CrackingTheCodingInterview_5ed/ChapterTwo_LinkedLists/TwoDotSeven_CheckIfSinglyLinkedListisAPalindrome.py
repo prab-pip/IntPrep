@@ -68,5 +68,5 @@ class Solution(object):
                 return False
             elif returnedStatus is None:
                 return True
-            # Short form of above code: return returnedStatus is None
+            # Short form of  above code: return returnedStatus is None
 
